@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NiceIconMenu"
+             x:Class="NiceIconMenu.MainPage">
+    <Grid>
+          
+        <!-- Menu view -->
+        <Grid BackgroundColor="#528496">
+           
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="MenuSafeAreaRow" Height="0" />
+                <RowDefinition x:Name="MenuTopRow" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="*"  />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition x:Name="MenuBottomRow" />
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="67.5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Image Grid.Row="0" Grid.RowSpan="12" Grid.Column="0" Grid.ColumnSpan="3" Source="background.png" Aspect="AspectFill" Opacity="0.5" />
+              
+            <Frame Grid.Row="2" Grid.Column="1" WidthRequest="67.5" x:Name="UserIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   BackgroundColor="White" HasShadow="False" 
+                   HeightRequest="67.5" CornerRadius="33.75" IsClippedToBounds="True">
+                <Image Margin="-20" Source="michelle_pfeiffer.png" HeightRequest="67.5"
+                       WidthRequest="67.5" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Frame>
+             
+
+            <Image Grid.Row="4" Grid.Column="1" WidthRequest="67.5" x:Name="UsersIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   Source="users.png"
+                   HeightRequest="67.5"  />
+            <Image Grid.Row="6" Grid.Column="1" WidthRequest="67.5" x:Name="StarIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   Source="star.png"
+                   HeightRequest="67.5"  />
+            <Image Grid.Row="8" Grid.Column="1" WidthRequest="67.5" x:Name="MessageIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   Source="message.png"
+                   HeightRequest="67.5"  />
+            
+            <Image Grid.Row="10" Grid.Column="1" WidthRequest="67.5" x:Name="SettingsIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   Source="settings.png"
+                   HeightRequest="67.5"  />
+        </Grid>
+        
+        <!-- Content view -->
+        <Frame x:Name="Page" HasShadow="False" IsClippedToBounds="True" CornerRadius="0">
+            <Grid Margin="-20" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" BackgroundColor="{StaticResource PrimaryColor}" RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="ToolbarSafeAreaRow" />
+                        <RowDefinition Height="48" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="48" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Grid.Row="1" Clicked="OnShowMenu" Image="menu.png"
+                            CornerRadius="0" BackgroundColor="Transparent" />
+
+                    <Label Grid.Column="1" Grid.Row="1" FontSize="Medium"
+                           Text="Inbox" TextColor="{StaticResource TitleTextColor}"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </Grid>
+
+                <ListView Grid.Row="1" x:Name="UserListView" RowHeight="90">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell IsEnabled="False">
+                                <Grid RowSpacing="0" ColumnSpacing="0" Padding="10,0,10,0">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Column="0" WidthRequest="90"
+                                           HorizontalOptions="Center" VerticalOptions="Center"
+                                           BackgroundColor="White" HasShadow="False" Scale="0.75"
+                                           HeightRequest="90" CornerRadius="45" IsClippedToBounds="True">
+                                        <Image Margin="-20" Source="{Binding Photo}" HeightRequest="90"
+                                               WidthRequest="90" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    </Frame>
+
+                                    <StackLayout Grid.Column="1" Spacing="0"
+                                                VerticalOptions="Center" >
+
+                                        <Label Text="{Binding Name}" FontSize="Medium"
+                                               TextColor="#394A57" />
+
+                                        <Label Text="{Binding Description}"
+                                               FontSize="Small" TextColor="#8C9095" />
+
+                                        <Label Text="{Binding Time}" FontSize="Small"
+                                               TextColor="#C2C5CB" />
+                                    </StackLayout>
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Frame>
+
+    </Grid>
+</ContentPage>

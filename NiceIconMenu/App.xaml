@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="NiceIconMenu.App">
+    <Application.Resources>
+        <!--  Colors  -->
+        <Color x:Key="PrimaryColor">#61AADB</Color>
+        <Color x:Key="TitleTextColor">#FFFFFF</Color>
+            
+        <!--  Label  -->
+        <Style TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Nunito Sans</On>
+                        <On Platform="Android">Fonts/NunitoSansRegular.ttf#Nunito Sans</On>
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
+            
+        <!-- Converters 
+        <converters:DateTimeToStringConverter x:Key="DateTimeToStringConverter" /> -->
+    </Application.Resources>
+</Application>
