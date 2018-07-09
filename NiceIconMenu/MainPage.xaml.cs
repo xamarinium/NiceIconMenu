@@ -62,7 +62,6 @@ namespace NiceIconMenu
 
             _isAnimationRun = true;
             var animationDuration = AnimationDuration;
-            ViewExtensions.CancelAnimations();
             if (Page.Scale < 1)
             {
                 animationDuration = (int) (AnimationDuration * SlideAnimationDuration);
